@@ -11,7 +11,7 @@ typedef struct Node{
 void display(Node* list){
 
     if(list==NULL){
-        printf("NULL");
+        printf("NULL\n");
         return;
     }
 
@@ -19,14 +19,13 @@ void display(Node* list){
         printf("%d -> ",list->x);
         list = list->next;
         if(list==NULL){
-            printf("NULL");
+            printf("NULL\n");
         }
     }
 
 }
 
 void insertEnd(Node** root, int value){
-    
     Node* new_node = malloc(sizeof(Node));
     new_node->x = value;
     new_node->next = NULL;
@@ -37,12 +36,12 @@ void insertEnd(Node** root, int value){
     }
 
     Node* curr = *root;
-    while ( curr->next !=NULL)
-    {
-        curr = curr->next;
+    while (curr->next !=NULL)
+    {   
+        curr = curr->next;   // tig next if new_node is dili empty.
+    }   
 
-    }
-    curr->next = new_node;
+        curr->next = new_node;// the printer or the one who will put a value to the new node
 
 
 }
@@ -55,10 +54,10 @@ int main(){
     insertEnd(&list,24);
     insertEnd(&list,23);
     insertEnd(&list,143);
+    insertEnd(&list,2425);
+    
 
 
-
-    display(list);
 
 
     
